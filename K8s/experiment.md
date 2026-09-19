@@ -42,11 +42,19 @@ open file using vim then run this command it will open file in ==insert (paste)=
   ```yaml
 	strategy:
 	  type: RollingUpdate
-	  rollingUpdate:
-		maxUnavailable: 1
+	  rollingUpdatea:
+            maxUnavailable: 1
 	    maxSurge: 1
   ```
   
 - above changes in deployment file in spec section
 - maxUnavail ⇒ max pods unavail limit when changes apply to the cluster
-- maxUnavail ⇒ max pods create limit when changes apply to the cluster
+- maxSurge ⇒ max pods create limit when changes apply to the cluster
+
+
+
+> to check how maxUnavail and maxSurge work create two panes run *watch* command and apply change in another pane
+> > `watch -n 1 "kubectl get pods"`
+> > `k apply -f deploy-strategy.yaml`
+
+

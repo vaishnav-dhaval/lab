@@ -15,7 +15,7 @@ spec:
         app: deploy-demo
     spec:
       containers:
-      - image: httpd
+      - image: httpd:alpine3.24
         name: httpd
         resources: {}
   strategy:
