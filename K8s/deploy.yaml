@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: deploy-demo
+  name: deploy-demo
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: deploy-demo
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: deploy-demo
+    spec:
+      containers:
+      - image: httpd
+        name: httpd
+        resources: {}
+status: {}
