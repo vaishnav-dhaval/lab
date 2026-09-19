@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: deploy-demo
+  name: deploy-demo
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: deploy-demo
+  template:
+    metadata:
+      labels:
+        app: deploy-demo
+    spec:
+      containers:
+      - image: httpd
+        name: httpd
+        resources: {}
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
+status: {}
