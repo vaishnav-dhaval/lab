@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    run: mealie
+  name: mealie
+spec:
+  containers:
+  - image: nginx
+    name: mealie
+    volumeMounts:
+      - mountPath: /scratch
+        name: scratch-volume
+  volumes:
+    - name: scratch-volume
+      emptyDir:
+        sizeLimit: 500Mi
